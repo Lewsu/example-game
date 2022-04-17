@@ -4,18 +4,32 @@ using UnityEngine;
 
 public class Controls : MonoBehaviour
 {
-    [SerializeField] float movementSpeed;
-    [SerializeField] float rotationSpeed;
-    [SerializeField] float jumpForce;
+    [SerializeField] float movementSpeed = 5f;
+    [SerializeField] float rotationSpeed = 500f;
+    [SerializeField] float jumpForce = 7f;
     private Rigidbody rb;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        Debug.Log(movementSpeed);
-        Debug.Log(rotationSpeed);
-        Debug.Log(jumpForce);
+    }
+
+    // Collision
+    private void OnCollisionStay(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Platform1"))
+        {
+            Debug.Log("You are on the first block");
+        }
+        else if (collision.gameObject.CompareTag("Platform2"))
+        {
+            Debug.Log("You are on the second block");
+        }
+        else if (collision.gameObject.CompareTag("Platform3"))
+        {
+            Debug.Log("You are on the third block");
+        }
     }
 
     // Update is called once per frame
