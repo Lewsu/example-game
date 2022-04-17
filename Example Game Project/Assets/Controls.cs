@@ -22,7 +22,7 @@ public class Controls : MonoBehaviour
     void Update()
     {
         // Move
-        transform.Translate(new Vector3(Input.GetAxis("Vertical"), 0, 0) * Time.deltaTime * movementSpeed);
+        transform.Translate(new Vector3(0, 0, Input.GetAxis("Vertical")) * Time.deltaTime * movementSpeed);
 
         // Rotate
         transform.Rotate(new Vector3(0, Input.GetAxis("Horizontal"), 0) * Time.deltaTime * rotationSpeed);
